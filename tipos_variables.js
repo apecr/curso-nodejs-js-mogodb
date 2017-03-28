@@ -27,3 +27,8 @@ var objeto = {
 console.log(objeto.numero);
 console.log(objeto.texto);
 console.log(objeto.sumaDos(3));
+
+// Array
+
+var array = [1, "hola", function(v){return v +2;},{valor: "hola"}];
+console.log(array);
