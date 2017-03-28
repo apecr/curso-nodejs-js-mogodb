@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-servidor-basico",
+  "version": "1.0.0",
+  "description": "Servidor Basico HTTP para el curso de node de keepcoding.es",
+  "main": "servidor_basico.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apecr/nodejs-servidor-basico.git"
+  },
+  "keywords": [
+    "node.js",
+    "http"
+  ],
+  "author": "Alberto Eyo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apecr/nodejs-servidor-basico/issues"
+  },
+  "homepage": "https://github.com/apecr/nodejs-servidor-basico#readme",
+  "dependencies": {
+    "chance": "^1.0.6"
+  }
+}
