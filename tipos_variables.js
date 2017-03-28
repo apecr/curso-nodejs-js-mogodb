@@ -32,3 +32,19 @@ console.log(objeto.sumaDos(3));
 
 var array = [1, "hola", function(v){return v +2;},{valor: "hola"}];
 console.log(array);
+console.log(array[0]);
+console.log(array[2](500));
+
+// Hoisting
+
+var x = 100;
+
+var hosting = function(){
+    // var x; // Ergo es undefined
+    if (x  < 200){
+        var x = 30;
+    }
+    return x;
+};
+
+console.log(x, hosting());
