@@ -1,0 +1,16 @@
+{
+  "name": "version_modulo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -u tdd"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "assert-callback": "^0.1.0",
+    "chance": "^1.0.6",
+    "mocha": "^3.2.0"
+  }
+}
