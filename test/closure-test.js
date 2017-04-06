@@ -1,8 +1,8 @@
 "use strict";
 
 const assert = require("assert");
-const closure = require("../closure.js");
-const closure2 = require("../closure2.js");
+const closure = require("../lib/closure.js");
+const closure2 = require("../lib/closure2.js");
 
 describe("Testing closures", () => {
     it("Should return the passed value", () => {

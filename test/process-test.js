@@ -1,7 +1,7 @@
 "use strict";
 
 const assert = require("assert");
-const processEyo = require("../process.js");
+const processEyo = require("../lib/process.js");
 
 describe("Functions of Node process", () => {
     it("Should return the pid of the process", () => {

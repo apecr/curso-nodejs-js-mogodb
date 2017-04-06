@@ -1,7 +1,7 @@
 "use strict";
 
 const assert = require("assert");
-const eventemitter = require("../eventemitter.js");
+const eventemitter = require("../lib/eventemitter.js");
 
 describe("Testing the options of event emitter", () => {
     it("Should ring and br when call the phone", () => {

@@ -1,7 +1,7 @@
 "use strict";
 
 const assert = require("assert");
-const prototipos = require("../prototipos.js");
+const prototipos = require("../lib/prototipos.js");
 
 describe("Using the prototipos.js file", () => {
     const namePerson = "Neo";

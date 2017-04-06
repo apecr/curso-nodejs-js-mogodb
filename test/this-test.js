@@ -1,7 +1,7 @@
 "use strict";
 
 const assert = require("assert");
-const thisFile = require("../this.js");
+const thisFile = require("../lib/this.js");
 
 describe("Use of this file", () => {
     it("Should get the number of windows", () => {
