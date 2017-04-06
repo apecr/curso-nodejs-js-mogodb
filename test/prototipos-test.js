@@ -1,13 +1,11 @@
 "use strict";
-const describe = require("mocha").describe;
-const it = require("mocha").it;
+
 const assert = require("assert");
 const prototipos = require("../prototipos.js");
 
 describe("Using the prototipos.js file", () => {
     const namePerson = "Neo";
     const nameAgent = "Smith";
-    const nameHero = "Spiderman";
     it("Should return OK the Persona constructor", () => {
         //Arrange
         //Act
@@ -36,6 +34,7 @@ describe("Using the prototipos.js file", () => {
 });
 
 describe("Testing multiple inheritance", () => {
+    const nameHero = "Spiderman";
     it("Should inherite  superhero from agent" , () => {
         //Arrange
         //Act
@@ -44,7 +43,7 @@ describe("Testing multiple inheritance", () => {
         assert.ok(superHero.fly, "SuperHero has fly function");
         assert.ok(superHero.dodgeBullets, "SuperHero has dodgeBullets function");
     });
-    it("Should the Agent have tha powerrs of a superhero", () => {
+    it("Should the Agent have the powers of a superhero", () => {
         //Arrange
         Object.assign(prototipos.Agente.prototype, new prototipos.SuperHero());
         //Act

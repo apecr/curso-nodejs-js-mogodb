@@ -1,7 +1,5 @@
 "use strict";
 
-const describe = require("mocha").describe;
-const it = require("mocha").it;
 const assert = require("assert");
 const processEyo = require("../process.js");
 
@@ -17,7 +15,7 @@ describe("Functions of Node process", () => {
         assert.ok(processEyo.info.execPath, "PAth of the process " + processEyo.info.execPath);
         assert.ok(processEyo.info.folder, "Folder of the process " + processEyo.info.folder);
     });
-    it("Should do something on exit", (done) => {
+    it.skip("Should do something on exit", (done) => {
         //Arrange
         //Act
         console.log("Comienzo proceso");
