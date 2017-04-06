@@ -19,7 +19,7 @@ describe("Using the prototipos.js file", () => {
         //Act
         const greet = persona.greet();
         //Assert
-        assert.ok(greet, "Hola me llamo " + namePerson, "Created the person object");
+        assert.equal(greet, "Hola me llamo " + namePerson, "Created the person object");
     });
     it("Should works the Agent function", () => {
         //Arrange
@@ -27,6 +27,19 @@ describe("Using the prototipos.js file", () => {
         //Act
         const greet = agent.greet();
         //Assert
-        assert.ok(greet, "Hola me llamo " + nameAgent, "Created the person object");
+        assert.equal(greet, "Hola me llamo " + nameAgent, "Created the person object");
+        assert.ok(agent instanceof prototipos.Agente, "Prototype of Agente is Agente");
+        assert.ok(agent instanceof prototipos.Persona, "Prototype of Agente is Persona");
+    });
+});
+
+describe("Testing multiple inheritance", () => {
+    it("Should inherite  superhero from agent" , () => {
+        //Arrange
+        //Act
+        var superHero = new prototipos.SuperHero();
+        //Assert
+        assert.ok(superHero.fly, "SuperHero has fly function");
+        assert.ok(superHero.dodgeBullets, "SuperHero has dodgeBullets function");
     });
 });
