@@ -22,7 +22,8 @@
   "homepage": "https://github.com/apecr/nodejs-servidor-basico#readme",
   "dependencies": {
     "async": "^2.2.0",
-    "chance": "^1.0.6"
+    "chance": "^1.0.6",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "mocha": "^3.2.0"
