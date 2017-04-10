@@ -25,7 +25,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
     console.log("Middleware a nivel de aplicacion");
-    next({status: 500, message: "Imposible continuar"});
+    //Si error hacer esto
+    // next({status: 500, message: "Imposible continuar"});
+    next();
 });
 
 app.use('/', index);

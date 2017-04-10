@@ -6,6 +6,15 @@ var router = express.Router();
 //Middleware para clientes solo
 router.use((req, res, next) => {
     console.log("middleware de router clientes");
+    //Mejor
+    // if (condicion){
+    //     res.send("Respuesta");
+    //     return;
+    // }
+    // next();
+
+    //Esto esta mal!! (se hace send dos veces)  
+    res.send("Respuesta");
     next();
 });
 
