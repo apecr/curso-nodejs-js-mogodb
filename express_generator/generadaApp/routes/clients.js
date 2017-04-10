@@ -3,6 +3,12 @@
 var express = require("express");
 var router = express.Router();
 
+//Middleware para clientes solo
+router.use((req, res, next) => {
+    console.log("middleware de router clientes");
+    next();
+});
+
 router.get("/", (req, res, next) => {
     res.send("respuesta a clients");
 });
