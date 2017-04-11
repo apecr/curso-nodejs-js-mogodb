@@ -13,8 +13,7 @@ router.use((req, res, next) => {
     // }
     // next();
 
-    //Esto esta mal!! (se hace send dos veces)  
-    res.send("Respuesta");
+    //Esto esta mal!! (se hace send dos veces)
     next();
 });
 
