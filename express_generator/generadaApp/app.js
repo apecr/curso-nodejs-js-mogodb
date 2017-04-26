@@ -6,8 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 var clients = require("./routes/clients");
+
+require('./lib/connectMongoose');
+require('./models/Agent');
 
 var app = express();
 
@@ -24,32 +26,46 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-    console.log("Middleware a nivel de aplicacion");
-    //Si error hacer esto
-    // next({status: 500, message: "Imposible continuar"});
-    next();
+  console.log("Middleware a nivel de aplicacion");
+  //Si error hacer esto
+  // next({status: 500, message: "Imposible continuar"});
+  next();
 });
 
-app.use('/', index);
-app.use('/users', users);
-app.use("/clients", clients);
+app.use('/', require('./routes/index'));
+app.use("/clients", require("./routes/clients"));
+app.use('/apiv1/agents', require('./routes/apiv1/agents'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+  var err = new Error('Not Found');
+  err.status = 404;
+  apiErrorResponse(req, res, err, next);
 });
 
 // error handler
+function apiErrorResponse(req, res, err, next) {
+  if (isAPI(req)) {
+    res.status(err.status || 500);
+    res.json({ok: false, error: err.message});
+    return;
+  }
+  if (next) {
+    next(err);
+  }
+}
 app.use(function (err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    // render the error page
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  apiErrorResponse(req, res, err);
+  // render the error page
+  if (!isAPI(req)) {
     res.status(err.status || 500);
     res.render('error');
+  }
 });
+
+var isAPI = (request) => request.originalUrl.indexOf('/api') === 0;
 
 module.exports = app;

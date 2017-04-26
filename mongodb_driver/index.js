@@ -9,16 +9,24 @@ var onError = function (error) {
   return process.exit();
 }
 
-var onResponseMongo = function (docs, db){
+var onResponseMongo = function (docs, db) {
   console.log(docs);
   db.close();
+  return docs;
 }
 
-var onConnect =  function (db) {
+var onConnectReturnDocs = function (db) {
   return db.collection(TABLE_AGENTS).find().toArray().then(function (docs) {
     return onResponseMongo(docs, db);
   });
 }
 
+var agentsFromMongo = function () {
+  var docs = MongoClient.connect(URL_BBDD).then(onConnectReturnDocs).catch(onError);
+  console.log(docs);
+  return docs;
+}
 
-MongoClient.connect(URL_BBDD).then(onConnect).catch(onError);
+module.exports =  {
+  agentsFromMongo: agentsFromMongo()
+}
